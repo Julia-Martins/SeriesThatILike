@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "699610412801",
+    "project_id": "seriesthatilike",
+    "storage_bucket": "seriesthatilike.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699610412801:android:7fb893cd07f7f283314d00",
+        "android_client_info": {
+          "package_name": "com.example.seriesthatilike"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoiJBmIOvKERB2P1K8PuXuFFLe6neGDRg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
