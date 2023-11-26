@@ -1,10 +1,12 @@
 package com.example.seriesthatilike.models;
 
 import android.net.Uri;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import java.util.Date;
 
-public class ItemSeriesListModel {
+public class ItemSeriesListModel{
     private Uri uriSeries;
     private Uri uriPlatform;
     private String seriesName;
@@ -13,11 +15,11 @@ public class ItemSeriesListModel {
     private Date seriesDate;
     private int intEpiNum;
     private int intSeasonNum;
-    private boolean btnWatch;
+    private Uri btnWatch;
 
     public ItemSeriesListModel(Uri uriSeries, Uri uriPlatform,
                                String seriesName, String seriesTitleDescription, String seriesDescription,
-                               Date seriesDate, int intEpiNum, int intSeasonNum, boolean btnWatch){
+                               Date seriesDate, int intEpiNum, int intSeasonNum, Uri btnWatch) {
         this.uriSeries = uriSeries;
         this.uriPlatform = uriPlatform;
         this.seriesName = seriesName;
@@ -93,11 +95,11 @@ public class ItemSeriesListModel {
         this.intSeasonNum = intSeasonNum;
     }
 
-    public boolean isBtnWatch() {
+    public Uri getBtnWatch() {
         return btnWatch;
     }
 
-    public void setBtnWatch(boolean btnWatch) {
+    public void setBtnWatch(Uri btnWatch) {
         this.btnWatch = btnWatch;
     }
 }
