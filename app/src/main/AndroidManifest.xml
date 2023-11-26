@@ -13,13 +13,16 @@
         android:theme="@style/Theme.SeriesThatILike"
         tools:targetApi="31">
         <activity
+            android:name=".activities.ListSeriesGallery"
+            android:exported="false" />
+        <activity
             android:name=".activities.CreateSeries"
             android:exported="false" />
         <activity
-            android:name=".models.ItemSeriesModel"
+            android:name=".models.ItemSeriesGalleryModel"
             android:exported="false" />
         <activity
-            android:name=".adpters.ItemSeriesAdapter"
+            android:name=".adapters.ItemSeriesGalleryAdapter"
             android:exported="false" />
         <activity
             android:name=".activities.UserLogin"

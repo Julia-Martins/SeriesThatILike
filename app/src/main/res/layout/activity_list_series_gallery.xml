@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.ListSeriesGallery">
+
+    <LinearLayout
+        android:id="@+id/ll_series_gallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+    >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/tool_series_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+
+            android:background="@color/purple"
+            app:title="@string/title_app_name"
+            app:titleTextColor="@color/grey"
+        />
+
+
+        <TextView
+            android:id="@+id/txt_title_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+
+            android:text="Movies"
+            android:textSize="30dp"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+
+        />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rec_view_series_gallery"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+
+            android:layout_gravity="center"
+        />
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_flt_series_gallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+
+        android:backgroundTint="@color/blue"
+
+        android:tint="@color/white"
+        app:srcCompat="@drawable/add_episodes_circle_outline" />
+
+</FrameLayout>
