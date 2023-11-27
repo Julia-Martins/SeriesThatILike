@@ -20,6 +20,7 @@
     <string name="txt_link_login_account">Did you have an Account? Login Here. </string>
 
     <string name="button_create_account">Create your Account</string>
+    <string name="button_add_series">Add Series</string>
     <string name="button_login">Login</string>
 
     <string name="txt_name_series">Series Name: </string>
@@ -31,5 +32,13 @@
 
     <string name="dt_pretend_add_series">Date Pretend Watch</string>
     <string name="dt_date_add_series">Date\'s here: </string>
+
+    <string name="txt_episode_add_series">Episode</string>
+    <string name="txt_edt_episode_add_series">0</string>
+
+    <string name="txt_season_add_series">Season</string>
+    <string name="txt_edt_season_add_series">0</string>
+
+    <string name="txt_img_platform_add_series">Platform</string>
 
 </resources>

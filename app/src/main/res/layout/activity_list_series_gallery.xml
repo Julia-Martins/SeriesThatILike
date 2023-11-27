@@ -34,7 +34,7 @@
             android:layout_marginTop="15dp"
             android:layout_marginBottom="15dp"
 
-            android:text="Movies"
+            android:text="What I Watch or Watching"
             android:textSize="30dp"
             android:textColor="@color/blue"
             android:textStyle="bold"
@@ -64,9 +64,9 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
 
+        android:src="@drawable/add_episodes_circle_outline"
         android:backgroundTint="@color/blue"
 
-        android:tint="@color/white"
-        app:srcCompat="@drawable/add_episodes_circle_outline" />
+    />
 
 </FrameLayout>

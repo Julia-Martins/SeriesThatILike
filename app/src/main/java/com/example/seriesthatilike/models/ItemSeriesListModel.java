@@ -20,6 +20,7 @@ public class ItemSeriesListModel{
     public ItemSeriesListModel(Uri uriSeries, Uri uriPlatform,
                                String seriesName, String seriesTitleDescription, String seriesDescription,
                                Date seriesDate, int intEpiNum, int intSeasonNum, Uri btnWatch) {
+
         this.uriSeries = uriSeries;
         this.uriPlatform = uriPlatform;
         this.seriesName = seriesName;
