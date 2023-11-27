@@ -4,6 +4,7 @@ import static androidx.core.content.ContextCompat.startActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Parcelable;
 import android.text.ParcelableSpan;
 import android.view.LayoutInflater;
@@ -33,7 +34,7 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_model_design_series, parent, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.item_model_design_information, parent, false);
 
         return new ItemViewHolder(view);
     }
@@ -41,15 +42,15 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         ItemSeriesListModel itemSeriesListModel = itemSeriesModel.get(position);
 
-        holder.uriSeries.setImageURI(itemSeriesListModel.getUriSeries());
-        holder.uriPlatform.setImageURI(itemSeriesListModel.getUriPlatform());
+        holder.uriSeries.setImageURI(Uri.parse(itemSeriesListModel.getUriSeries()));
+        holder.uriPlatform.setImageURI(Uri.parse(itemSeriesListModel.getUriPlatform()));
         holder.seriesName.setText(itemSeriesListModel.getSeriesName());
         holder.seriesTitleDescription.setText(itemSeriesListModel.getSeriesTitleDescription());
         holder.seriesDescription.setText(itemSeriesListModel.getSeriesDescription());
         holder.seriesDate.setText(itemSeriesListModel.getSeriesDate().toString());
         holder.intEpiNum.setText(itemSeriesListModel.getIntEpiNum());
         holder.intSeasonNum.setText(itemSeriesListModel.getIntSeasonNum());
-        holder.btnWatch.setImageURI(itemSeriesListModel.getBtnWatch());
+        holder.btnWatch.setImageURI(Uri.parse(itemSeriesListModel.getBtnWatch()));
     }
     @Override
     public int getItemCount() {

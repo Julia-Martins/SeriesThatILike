@@ -7,19 +7,19 @@ import android.os.Parcelable;
 import java.util.Date;
 
 public class ItemSeriesListModel{
-    private Uri uriSeries;
-    private Uri uriPlatform;
+    private String uriSeries;
+    private String uriPlatform;
     private String seriesName;
     private String seriesTitleDescription;
     private String seriesDescription;
     private Date seriesDate;
     private int intEpiNum;
     private int intSeasonNum;
-    private Uri btnWatch;
+    private String btnWatch;
 
-    public ItemSeriesListModel(Uri uriSeries, Uri uriPlatform,
+    public ItemSeriesListModel(String uriSeries, String uriPlatform,
                                String seriesName, String seriesTitleDescription, String seriesDescription,
-                               Date seriesDate, int intEpiNum, int intSeasonNum, Uri btnWatch) {
+                               Date seriesDate, int intEpiNum, int intSeasonNum, String btnWatch) {
 
         this.uriSeries = uriSeries;
         this.uriPlatform = uriPlatform;
@@ -32,19 +32,19 @@ public class ItemSeriesListModel{
         this.btnWatch = btnWatch;
     }
 
-    public Uri getUriSeries() {
+    public String getUriSeries() {
         return uriSeries;
     }
 
-    public void setUriSeries(Uri uriSeries) {
+    public void setUriSeries(String uriSeries) {
         this.uriSeries = uriSeries;
     }
 
-    public Uri getUriPlatform() {
+    public String getUriPlatform() {
         return uriPlatform;
     }
 
-    public void setUriPlatform(Uri uriPlatform) {
+    public void setUriPlatform(String uriPlatform) {
         this.uriPlatform = uriPlatform;
     }
 
@@ -96,11 +96,11 @@ public class ItemSeriesListModel{
         this.intSeasonNum = intSeasonNum;
     }
 
-    public Uri getBtnWatch() {
+    public String getBtnWatch() {
         return btnWatch;
     }
 
-    public void setBtnWatch(Uri btnWatch) {
+    public void setBtnWatch(String btnWatch) {
         this.btnWatch = btnWatch;
     }
 }

@@ -8,9 +8,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.seriesthatilike.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListSeriesGallery extends AppCompatActivity {
-    private Button btnAddSeries;
+    private FloatingActionButton btnAddSeries;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class database extends SQLiteOpenHelper {
+public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "list_series.db";
     private static final int DATABASE_VERSION = 1;
     public static final String TABLE_SERIES = "list_series";
@@ -28,7 +28,7 @@ public class database extends SQLiteOpenHelper {
                     COLUMN_seriesDate + " DATE, " +
                     COLUMN_intEpiNum + " INTEGER, " +
                     COLUMN_intSeasonNum + " INTEGER " + " );";
-    public database(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
