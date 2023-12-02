@@ -39,6 +39,7 @@
     <string name="txt_season_add_series">Season</string>
     <string name="txt_edt_season_add_series">0</string>
 
-    <string name="txt_img_platform_add_series">Platform</string>
+    <string name="txt_title_platform_add_series">Platform</string>
+    <string name="txt_platform_add_series">Platform\' here</string>
 
 </resources>

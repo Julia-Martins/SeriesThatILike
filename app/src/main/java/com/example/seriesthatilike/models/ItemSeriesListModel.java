@@ -1,14 +1,8 @@
 package com.example.seriesthatilike.models;
 
-import android.net.Uri;
-import android.os.Parcel;
-import android.os.Parcelable;
-
 import java.util.Date;
 
 public class ItemSeriesListModel{
-    private String uriSeries;
-    private String uriPlatform;
     private String seriesName;
     private String seriesTitleDescription;
     private String seriesDescription;
@@ -17,12 +11,9 @@ public class ItemSeriesListModel{
     private int intSeasonNum;
     private String btnWatch;
 
-    public ItemSeriesListModel(String uriSeries, String uriPlatform,
-                               String seriesName, String seriesTitleDescription, String seriesDescription,
+    public ItemSeriesListModel(String seriesName, String seriesTitleDescription, String seriesDescription,
                                Date seriesDate, int intEpiNum, int intSeasonNum, String btnWatch) {
 
-        this.uriSeries = uriSeries;
-        this.uriPlatform = uriPlatform;
         this.seriesName = seriesName;
         this.seriesTitleDescription = seriesTitleDescription;
         this.seriesDescription = seriesDescription;
@@ -30,22 +21,6 @@ public class ItemSeriesListModel{
         this.intEpiNum = intEpiNum;
         this.intSeasonNum = intSeasonNum;
         this.btnWatch = btnWatch;
-    }
-
-    public String getUriSeries() {
-        return uriSeries;
-    }
-
-    public void setUriSeries(String uriSeries) {
-        this.uriSeries = uriSeries;
-    }
-
-    public String getUriPlatform() {
-        return uriPlatform;
-    }
-
-    public void setUriPlatform(String uriPlatform) {
-        this.uriPlatform = uriPlatform;
     }
 
     public String getSeriesName() {

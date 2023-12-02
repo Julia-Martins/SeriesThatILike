@@ -27,7 +27,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     COLUMN_seriesDescription + " TEXT, " +
                     COLUMN_seriesDate + " DATE, " +
                     COLUMN_intEpiNum + " INTEGER, " +
-                    COLUMN_intSeasonNum + " INTEGER " + " );";
+                    COLUMN_intSeasonNum + " INTEGER " +
+                    " );";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

@@ -1,16 +1,10 @@
 package com.example.seriesthatilike.adapters;
 
-import static androidx.core.content.ContextCompat.startActivity;
-
 import android.content.Context;
-import android.content.Intent;
 import android.net.Uri;
-import android.os.Parcelable;
-import android.text.ParcelableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +12,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.seriesthatilike.R;
-import com.example.seriesthatilike.activities.ListSeriesGallery;
 import com.example.seriesthatilike.models.ItemSeriesListModel;
 
 import java.util.List;
@@ -42,8 +35,6 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         ItemSeriesListModel itemSeriesListModel = itemSeriesModel.get(position);
 
-        holder.uriSeries.setImageURI(Uri.parse(itemSeriesListModel.getUriSeries()));
-        holder.uriPlatform.setImageURI(Uri.parse(itemSeriesListModel.getUriPlatform()));
         holder.seriesName.setText(itemSeriesListModel.getSeriesName());
         holder.seriesTitleDescription.setText(itemSeriesListModel.getSeriesTitleDescription());
         holder.seriesDescription.setText(itemSeriesListModel.getSeriesDescription());
@@ -58,20 +49,15 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
     }
 
     public class ItemViewHolder extends RecyclerView.ViewHolder{
-        ImageView uriSeries;
-        ImageView uriPlatform;
         TextView seriesName;
         TextView seriesTitleDescription;
         TextView seriesDescription;
         TextView seriesDate;
         TextView intEpiNum;
         TextView intSeasonNum;
-        ImageButton btnWatch;
+        ImageView btnWatch;
         public ItemViewHolder(@NonNull View itemView){
             super(itemView);
-
-            uriSeries = itemView.findViewById(R.id.img_series_list);
-            uriPlatform = itemView.findViewById(R.id.img_platform_series_list);
 
             seriesName = itemView.findViewById(R.id.txt_series_list);
             seriesTitleDescription = itemView.findViewById(R.id.txt_title_description_series_list);
