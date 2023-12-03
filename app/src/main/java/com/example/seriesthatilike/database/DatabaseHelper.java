@@ -10,25 +10,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public static final String TABLE_SERIES = "list_series";
     public static final String COLUMN_ID = "id_series";
     public static final String COLUMN_seriesName = "series_name";
-    public static final String COLUMN_uriSeries = "img_series";
-    public static final String COLUMN_uriPlatform = "img_platform";
+    public static final String COLUMN_seriesPlatform = "series_platform";
     public static final String COLUMN_seriesTitleDescription = "series_title_description";
     public static final String COLUMN_seriesDescription = "series_description";
     public static final String COLUMN_seriesDate = "series_date";
+    public static final String COLUMN_intSeriesWatched = "int_series_watched";
     public static final String COLUMN_intEpiNum = "int_episodes_num";
     public static final String COLUMN_intSeasonNum = "int_season_num";
-    private static final String TABLE_CREATE =
+    public static String TABLE_CREATE =
             "CREATE TABLE " + TABLE_SERIES + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                     COLUMN_seriesName + " TEXT, " +
-                    COLUMN_uriSeries + " TEXT, " +
-                    COLUMN_uriPlatform + " TEXT, " +
+                    COLUMN_seriesPlatform + " TEXT, " +
                     COLUMN_seriesTitleDescription + " TEXT, " +
                     COLUMN_seriesDescription + " TEXT, " +
                     COLUMN_seriesDate + " DATE, " +
+                    COLUMN_intSeriesWatched + " INTEGER," +
                     COLUMN_intEpiNum + " INTEGER, " +
                     COLUMN_intSeasonNum + " INTEGER " +
-                    " );";
+                " );";
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }

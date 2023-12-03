@@ -1,12 +1,13 @@
 package com.example.seriesthatilike.adapters;
 
 import android.content.Context;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,12 +37,16 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
         ItemSeriesListModel itemSeriesListModel = itemSeriesModel.get(position);
 
         holder.seriesName.setText(itemSeriesListModel.getSeriesName());
-        holder.seriesTitleDescription.setText(itemSeriesListModel.getSeriesTitleDescription());
-        holder.seriesDescription.setText(itemSeriesListModel.getSeriesDescription());
         holder.seriesDate.setText(itemSeriesListModel.getSeriesDate().toString());
         holder.intEpiNum.setText(itemSeriesListModel.getIntEpiNum());
         holder.intSeasonNum.setText(itemSeriesListModel.getIntSeasonNum());
-        holder.btnWatch.setImageURI(Uri.parse(itemSeriesListModel.getBtnWatch()));
+        holder.seriesWatch.setText((CharSequence) itemSeriesListModel.getSeriesWatch());
+        holder.seriesAddEp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "Soon it will work!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
     @Override
     public int getItemCount() {
@@ -50,23 +55,22 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
 
     public class ItemViewHolder extends RecyclerView.ViewHolder{
         TextView seriesName;
-        TextView seriesTitleDescription;
-        TextView seriesDescription;
         TextView seriesDate;
+        TextView seriesPlatform;
         TextView intEpiNum;
         TextView intSeasonNum;
-        ImageView btnWatch;
+        CheckBox seriesWatch;
+        ImageButton seriesAddEp;
         public ItemViewHolder(@NonNull View itemView){
             super(itemView);
 
-            seriesName = itemView.findViewById(R.id.txt_series_list);
-            seriesTitleDescription = itemView.findViewById(R.id.txt_title_description_series_list);
-            seriesDescription = itemView.findViewById(R.id.txt_description_series_list);
+            seriesName = itemView.findViewById(R.id.txt_name_series_list);
             seriesDate = itemView.findViewById(R.id.txt_dt_watching_series_list);
+            seriesPlatform = itemView.findViewById(R.id.txt_platform_series_list);
             intEpiNum = itemView.findViewById(R.id.txt_episodes_number_series_list);
             intSeasonNum = itemView.findViewById(R.id.txt_season_number_series_list);
-
-            btnWatch = itemView.findViewById(R.id.imgButton_watch_watched_will_watch_series_list);
+            seriesWatch = itemView.findViewById(R.id.chk_watch_add_series);
+            seriesAddEp = itemView.findViewById(R.id.img_add_episodes_series_list);
         }
     }
 }

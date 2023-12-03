@@ -11,17 +11,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.seriesthatilike.R;
 import com.example.seriesthatilike.database.DatabaseHelper;
 import com.example.seriesthatilike.models.ItemSeriesListModel;
 
@@ -39,9 +38,8 @@ public class CreateSeries extends AppCompatActivity {
     private EditText txt_edt_season_add_series;
     private EditText txt_edt_platform_add_series;
     private EditText txt_edt_description_add_series;
-    private ImageView imgButton_watch_watched_will_watch_add_series;
-    private boolean img_button_value = false;
-    private ImageButton imgButton_add_episodes_series_list;
+    private TextView txt_description_add_series;
+    private CheckBox chk_watch_add_series;
     private Button btn_add_series;
     private ItemSeriesListModel mSeriesListModel;
     @Override
@@ -57,9 +55,9 @@ public class CreateSeries extends AppCompatActivity {
         txt_edt_season_add_series = findViewById(id.txt_edt_season_add_series);
         txt_edt_platform_add_series = findViewById(id.txt_edt_platform_add_series);
         txt_edt_description_add_series = findViewById(id.txt_edt_description_add_series);
+        txt_description_add_series = findViewById(id.txt_description_add_series);
 
-        imgButton_watch_watched_will_watch_add_series = findViewById(id.imgButton_watch_watched_will_watch_add_series);
-        imgButton_add_episodes_series_list = findViewById(id.imgButton_add_episodes_series_list);
+        chk_watch_add_series = findViewById(id.chk_watch_add_series);
         btn_add_series = findViewById(id.btn_add_series);
 
 
@@ -70,6 +68,17 @@ public class CreateSeries extends AppCompatActivity {
                     onBackPressed();
                 }
         );
+
+//        DatabaseHelper databaseHelper = new DatabaseHelper(CreateSeries.this);
+//
+//        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+//
+//        db.execSQL("DROP TABLE IF EXISTS list_series");
+
+//        SQLiteDatabase db = databaseHelper.getWritableDatabase();
+//
+//        db.execSQL(TABLE_CREATE);
+
 
         dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -96,17 +105,11 @@ public class CreateSeries extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-
-        imgButton_watch_watched_will_watch_add_series.setOnClickListener(new View.OnClickListener() {
+        chk_watch_add_series.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (img_button_value){
-                    imgButton_watch_watched_will_watch_add_series.setImageResource(R.drawable.will_watched);
-                    img_button_value = false;
-                }else{
-                    imgButton_watch_watched_will_watch_add_series.setImageResource(R.drawable.watching);
-                    img_button_value = true;
-                }
+                int watchedStatus = chk_watch_add_series.isChecked() ? 1 : 0;
+                Log.i("Know if it's everything okay ", String.valueOf(watchedStatus));
             }
         });
 
@@ -116,15 +119,14 @@ public class CreateSeries extends AppCompatActivity {
             public void onClick(View v) {
 
                 String seriesName = txt_edt_name_add_series.getText().toString();
-                String seriesTitleDescription = txt_edt_description_add_series.getText().toString();
+                String seriesTitleDescription = txt_description_add_series.getText().toString();
                 String seriesDescription = txt_edt_description_add_series.getText().toString();
                 String seriesDate = txt_edt_date_add_series.getText().toString();
                 String seriesPlatform = txt_edt_platform_add_series.getText().toString();
 
                 int intEpiNum = txt_edt_episode_add_series.getText().length();
                 int intSeasonNum = txt_edt_season_add_series.getText().length();
-
-                String imgButton_add_series = imgButton_watch_watched_will_watch_add_series.toString();
+                int intSeriesWatched = chk_watch_add_series.isChecked() ? 1 : 0;
 
                 if(seriesName.isEmpty()) {
                     Toast.makeText(CreateSeries.this, "Título não pode estar vázio.",
@@ -144,6 +146,7 @@ public class CreateSeries extends AppCompatActivity {
                 } else if (intSeasonNum <= 0) {
                     Toast.makeText(CreateSeries.this, "Temporada não pode ser menor ou igual a 0.",
                             Toast.LENGTH_SHORT).show();
+
                 }else {
                     DatabaseHelper databaseHelper = new DatabaseHelper(CreateSeries.this);
 
@@ -151,23 +154,19 @@ public class CreateSeries extends AppCompatActivity {
 
                     ContentValues values = new ContentValues();
                     values.put("series_name", seriesName);
-
-                    if(seriesTitleDescription.isEmpty()) {
-                        seriesTitleDescription = txt_edt_name_add_series.getText().toString();
-                        Toast.makeText(CreateSeries.this, "Título da descrição terá o mesmo nome da série.",
-                                Toast.LENGTH_SHORT).show();
-                    }
-
+                    values.put("series_platform", seriesPlatform);
                     values.put("series_title_description", seriesTitleDescription);
                     values.put("series_description", seriesDescription);
                     values.put("series_date", seriesDate.replace("/", "-"));
+                    values.put("int_series_watched", intSeriesWatched);
                     values.put("int_episodes_num", intEpiNum);
                     values.put("int_season_num", intSeasonNum);
 
                     long newRowId = db.insert(databaseHelper.TABLE_SERIES, null, values);
 
                     Log.i("Testando ", String.valueOf(newRowId));
-                    Toast.makeText(CreateSeries.this, "Teste deu certo", Toast.LENGTH_SHORT).show();
+
+                    Toast.makeText(CreateSeries.this, "Series have successfully adding.", Toast.LENGTH_SHORT).show();
 
                     db.close();
                     finish();

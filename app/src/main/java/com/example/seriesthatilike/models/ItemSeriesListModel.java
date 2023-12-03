@@ -1,26 +1,49 @@
 package com.example.seriesthatilike.models;
 
-import java.util.Date;
+import android.widget.CheckBox;
+import android.widget.ImageButton;
 
 public class ItemSeriesListModel{
     private String seriesName;
-    private String seriesTitleDescription;
-    private String seriesDescription;
-    private Date seriesDate;
+    private String seriesDate;
+    private String seriesPlatform;
     private int intEpiNum;
     private int intSeasonNum;
-    private String btnWatch;
+    private CheckBox seriesWatch;
+    private ImageButton seriesAddEp;
 
-    public ItemSeriesListModel(String seriesName, String seriesTitleDescription, String seriesDescription,
-                               Date seriesDate, int intEpiNum, int intSeasonNum, String btnWatch) {
-
+    public ItemSeriesListModel(String seriesName, String seriesDate, String seriesPlatform, int intEpiNum, int intSeasonNum, CheckBox seriesWatch, ImageButton seriesAddEp) {
         this.seriesName = seriesName;
-        this.seriesTitleDescription = seriesTitleDescription;
-        this.seriesDescription = seriesDescription;
         this.seriesDate = seriesDate;
+        this.seriesPlatform = seriesPlatform;
         this.intEpiNum = intEpiNum;
         this.intSeasonNum = intSeasonNum;
-        this.btnWatch = btnWatch;
+        this.seriesWatch = seriesWatch;
+        this.seriesAddEp = seriesAddEp;
+    }
+
+    public String getSeriesPlatform() {
+        return seriesPlatform;
+    }
+
+    public void setSeriesPlatform(String seriesPlatform) {
+        this.seriesPlatform = seriesPlatform;
+    }
+
+    public CheckBox getSeriesWatch() {
+        return seriesWatch;
+    }
+
+    public void setSeriesWatch(CheckBox seriesWatch) {
+        this.seriesWatch = seriesWatch;
+    }
+
+    public ImageButton getSeriesAddEp() {
+        return seriesAddEp;
+    }
+
+    public void setSeriesAddEp(ImageButton seriesAddEp) {
+        this.seriesAddEp = seriesAddEp;
     }
 
     public String getSeriesName() {
@@ -31,27 +54,11 @@ public class ItemSeriesListModel{
         this.seriesName = seriesName;
     }
 
-    public String getSeriesTitleDescription() {
-        return seriesTitleDescription;
-    }
-
-    public void setSeriesTitleDescription(String seriesTitleDescription) {
-        this.seriesTitleDescription = seriesTitleDescription;
-    }
-
-    public String getSeriesDescription() {
-        return seriesDescription;
-    }
-
-    public void setSeriesDescription(String seriesDescription) {
-        this.seriesDescription = seriesDescription;
-    }
-
-    public Date getSeriesDate() {
+    public String getSeriesDate() {
         return seriesDate;
     }
 
-    public void setSeriesDate(Date seriesDate) {
+    public void setSeriesDate(String seriesDate) {
         this.seriesDate = seriesDate;
     }
 
@@ -69,13 +76,5 @@ public class ItemSeriesListModel{
 
     public void setIntSeasonNum(int intSeasonNum) {
         this.intSeasonNum = intSeasonNum;
-    }
-
-    public String getBtnWatch() {
-        return btnWatch;
-    }
-
-    public void setBtnWatch(String btnWatch) {
-        this.btnWatch = btnWatch;
     }
 }

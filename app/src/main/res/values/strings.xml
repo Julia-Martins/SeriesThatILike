@@ -28,7 +28,9 @@
 
     <string name="title_add_series">Add New Series</string>
     <string name="txt_name_add_series">Series Name: </string>
-    <string name="txt_description_add_series">Series Description: </string>
+    <string name="txt_description_add_series">Synopses </string>
+
+    <string name="txt_edt_description_add_series">Synopses\' here: </string>
 
     <string name="dt_pretend_add_series">Date Pretend Watch</string>
     <string name="dt_date_add_series">Date\'s here: </string>

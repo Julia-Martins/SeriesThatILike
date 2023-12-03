@@ -13,34 +13,23 @@
         android:layout_height="wrap_content"
 
         android:padding="10dp"
+        android:orientation="horizontal"
 
         android:layout_gravity="center_horizontal"
         >
 
-        <ImageView
-            android:id="@+id/img_series_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:alpha="0.5"
-            android:scaleType="centerCrop"
-            android:layout_marginEnd="10dp"
-            android:src="@drawable/img_outline_broken_image" />
-
         <TextView
-            android:id="@+id/txt_series_list"
+            android:id="@+id/txt_name_series_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_gravity="center"
+            android:layout_marginEnd="10dp"
 
-            android:layout_marginTop="10dp"
-
-            android:text="Nome da Série"
+            android:text="@string/txt_name_add_series"
             android:textColor="@color/blue"
+            android:textSize="17sp"
             android:textStyle="bold"
-            android:textSize="16sp"
 
-            android:layout_toRightOf="@id/img_series_list"
             />
 
         <TextView
@@ -48,30 +37,43 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginStart="10dp"
-            android:layout_alignBottom="@id/txt_series_list"
-
             android:text="21/09/2002"
             android:textColor="@color/blue"
             android:textStyle="bold"
-            android:textSize="14sp"
+            android:textSize="15sp"
 
-            android:layout_toRightOf="@id/txt_series_list"
-            />
+            android:layout_marginEnd="10dp"
+
+            android:layout_toRightOf="@id/txt_name_series_list"
+        />
+
+        <TextView
+            android:id="@+id/txt_platform_series_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Platform"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:textSize="15sp"
+
+            android:layout_toRightOf="@id/txt_dt_watching_series_list"
+        />
 
         <TextView
             android:id="@+id/txt_season_series_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
+            android:layout_marginEnd="10dp"
+
             android:text="Season: "
             android:textColor="@color/blue"
             android:textStyle="bold"
-            android:textSize="13sp"
+            android:textSize="15sp"
 
-            android:layout_toRightOf="@id/img_series_list"
-            android:layout_below="@id/txt_series_list"
-            />
+            android:layout_below="@id/txt_name_series_list"
+        />
 
         <TextView
             android:id="@+id/txt_season_number_series_list"
@@ -81,11 +83,11 @@
             android:text="3"
             android:textColor="@color/blue"
             android:textStyle="bold"
-            android:textSize="13sp"
+            android:textSize="14sp"
 
             android:layout_toRightOf="@id/txt_season_series_list"
-            android:layout_below="@id/txt_series_list"
-            />
+            android:layout_below="@id/txt_name_series_list"
+        />
 
         <TextView
             android:id="@+id/txt_episodes_series_list"
@@ -95,103 +97,62 @@
             android:text="Episodes: "
             android:textColor="@color/blue"
             android:textStyle="bold"
-            android:textSize="13sp"
+            android:textSize="15sp"
 
-            android:layout_toRightOf="@id/img_series_list"
+            android:layout_marginEnd="10dp"
+
             android:layout_below="@id/txt_season_series_list"
-            />
+        />
 
         <TextView
             android:id="@+id/txt_episodes_number_series_list"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_gravity="center"
-
             android:text="36"
             android:textColor="@color/blue"
             android:textStyle="bold"
-            android:textSize="13sp"
+            android:textSize="14sp"
 
+            android:layout_below="@id/txt_season_number_series_list"
             android:layout_toRightOf="@id/txt_episodes_series_list"
-            android:layout_below="@id/txt_season_series_list"
-            />
+        />
 
-        <ImageView
-            android:id="@+id/img_platform_series_list"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-
-            android:layout_below="@id/txt_series_list"
-            android:layout_alignBottom="@id/txt_episodes_number_series_list"
+        <CheckBox
+            android:id="@+id/chk_watch_series_list"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
 
             android:layout_marginStart="10dp"
+
+            android:buttonTint="@color/purple"
+            android:checked="false"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+
+            android:text="Watch"
+            android:textColor="@color/purple"
+
+            android:layout_marginEnd="10dp"
 
             android:layout_toRightOf="@id/txt_episodes_number_series_list"
-            android:scaleType="centerCrop"
-            android:src="@drawable/img_outline_broken_image"
-            />
-
-        <ImageButton
-            android:id="@+id/imgButton_watch_watched_will_watch_series_list"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-
-            android:layout_marginStart="10dp"
-            android:layout_alignBottom="@id/txt_episodes_number_series_list"
-
-            android:layout_toRightOf="@id/img_platform_series_list"
             android:layout_below="@id/txt_dt_watching_series_list"
-
-            android:scaleType="centerInside"
-            android:src="@drawable/watching"
-            android:background="@color/grey"
-            />
+        />
 
         <ImageButton
             android:id="@+id/img_add_episodes_series_list"
-            android:layout_width="wrap_content"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
 
             android:src="@drawable/add_episodes_circle_outline"
             android:background="@color/grey"
+            android:scaleType="centerCrop"
 
-            android:layout_toRightOf="@id/imgButton_watch_watched_will_watch_series_list"
+            android:layout_alignBottom="@id/chk_watch_series_list"
+
+            android:layout_toRightOf="@id/chk_watch_series_list"
             android:layout_below="@id/txt_dt_watching_series_list"
-            android:layout_alignBottom="@id/imgButton_watch_watched_will_watch_series_list"
-            android:layout_alignEnd="@id/txt_dt_watching_series_list"
-            />
-
-        <TextView
-            android:id="@+id/txt_title_description_series_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Description"
-            android:textColor="@color/blue"
-            android:textStyle="bold"
-            android:textSize="21sp"
-
-            android:layout_marginTop="20dp"
-
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/img_series_list"
-            />
-
-        <TextView
-            android:id="@+id/txt_description_series_list"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:text="Content Descritpion"
-            android:textColor="@color/blue"
-            android:textSize="15sp"
-
-            android:layout_marginTop="10dp"
-
-            android:layout_centerHorizontal="true"
-            android:layout_below="@id/txt_title_description_series_list"
-            />
+        />
 
     </RelativeLayout>
     <!--     inserindo nome, dia da semana que pretende assistir,
