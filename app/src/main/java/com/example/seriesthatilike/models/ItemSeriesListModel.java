@@ -1,6 +1,5 @@
 package com.example.seriesthatilike.models;
 
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 
 public class ItemSeriesListModel{
@@ -9,17 +8,18 @@ public class ItemSeriesListModel{
     private String seriesPlatform;
     private int intEpiNum;
     private int intSeasonNum;
-    private CheckBox seriesWatch;
+    private Boolean seriesWatch;
     private ImageButton seriesAddEp;
 
-    public ItemSeriesListModel(String seriesName, String seriesDate, String seriesPlatform, int intEpiNum, int intSeasonNum, CheckBox seriesWatch, ImageButton seriesAddEp) {
+    public ItemSeriesListModel(){}
+
+    public ItemSeriesListModel(String seriesName, String seriesDate, String seriesPlatform, int intEpiNum, int intSeasonNum, Boolean seriesWatch) {
         this.seriesName = seriesName;
         this.seriesDate = seriesDate;
         this.seriesPlatform = seriesPlatform;
         this.intEpiNum = intEpiNum;
         this.intSeasonNum = intSeasonNum;
         this.seriesWatch = seriesWatch;
-        this.seriesAddEp = seriesAddEp;
     }
 
     public String getSeriesPlatform() {
@@ -30,11 +30,11 @@ public class ItemSeriesListModel{
         this.seriesPlatform = seriesPlatform;
     }
 
-    public CheckBox getSeriesWatch() {
+    public Boolean isSeriesWatch() {
         return seriesWatch;
     }
 
-    public void setSeriesWatch(CheckBox seriesWatch) {
+    public void setSeriesWatch(Boolean seriesWatch) {
         this.seriesWatch = seriesWatch;
     }
 

@@ -21,9 +21,15 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
     protected List<ItemSeriesListModel> itemSeriesModel;
     protected Context context;
 
+    public ItemSeriesListAdapter(){}
     public ItemSeriesListAdapter(List<ItemSeriesListModel> itemSeriesModel, Context context){
         this.itemSeriesModel = itemSeriesModel;
         this.context = context;
+    }
+
+    public void setItemSeriesModel(List<ItemSeriesListModel> itemSeriesModel){
+        this.itemSeriesModel = itemSeriesModel;
+        notifyDataSetChanged();
     }
     @NonNull
     @Override
@@ -40,7 +46,7 @@ public class ItemSeriesListAdapter extends RecyclerView.Adapter<ItemSeriesListAd
         holder.seriesDate.setText(itemSeriesListModel.getSeriesDate().toString());
         holder.intEpiNum.setText(itemSeriesListModel.getIntEpiNum());
         holder.intSeasonNum.setText(itemSeriesListModel.getIntSeasonNum());
-        holder.seriesWatch.setText((CharSequence) itemSeriesListModel.getSeriesWatch());
+        holder.seriesWatch.setChecked(itemSeriesListModel.isSeriesWatch());
         holder.seriesAddEp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

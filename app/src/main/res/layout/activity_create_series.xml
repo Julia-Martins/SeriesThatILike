@@ -304,7 +304,7 @@
 
             android:textColorHint="@color/blue"
             android:hint="@string/txt_edt_description_add_series"
-            android:maxLength="60"
+            android:maxLength="100"
             android:inputType="textAutoComplete"
         />
 
