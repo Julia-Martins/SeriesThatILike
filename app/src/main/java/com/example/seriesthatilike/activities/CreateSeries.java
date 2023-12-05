@@ -139,12 +139,12 @@ public class CreateSeries extends AppCompatActivity {
             DatabaseReference seriesRef = database.getReference("tbl_series");
 
             seriesRef.child(seriesName).child("seriesName").setValue(seriesName);
-            seriesRef.child(seriesDescription).child("seriesDescription").setValue(seriesDescription);
-            seriesRef.child(seriesDate).child("seriesDate").setValue(seriesDate);
-            seriesRef.child(seriesPlatform).child("seriesPlatform").setValue(seriesPlatform);
-            seriesRef.child(String.valueOf(intEpiNum)).child("intEpiNum").setValue(intEpiNum);
-            seriesRef.child(String.valueOf(intSeasonNum)).child("intSeasonNum").setValue(intSeasonNum);
-            seriesRef.child(String.valueOf(intSeriesWatched)).child("intSeriesWatched").setValue(intSeriesWatched);
+            seriesRef.child(seriesName).child("seriesDescription").setValue(seriesDescription);
+            seriesRef.child(seriesName).child("seriesDate").setValue(seriesDate);
+            seriesRef.child(seriesName).child("seriesPlatform").setValue(seriesPlatform);
+            seriesRef.child(seriesName).child("intEpiNum").setValue(intEpiNum);
+            seriesRef.child(seriesName).child("intSeasonNum").setValue(intSeasonNum);
+            seriesRef.child(seriesName).child("intSeriesWatched").setValue(intSeriesWatched);
 
             Toast.makeText(
                     this,

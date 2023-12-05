@@ -3,6 +3,7 @@ package com.example.seriesthatilike.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -32,6 +33,13 @@ public class UserLogin extends AppCompatActivity {
         txt_edt_password = findViewById(R.id.txt_edt_password);
 
         btn_login = findViewById(R.id.btn_login);
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loginUser();
+            }
+        });
     }
 
     private void loginUser(){
@@ -51,7 +59,7 @@ public class UserLogin extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()){
-                        Intent loginIntent = new Intent(UserLogin.this, ListSeriesGallery.class);
+                        Intent loginIntent = new Intent(getApplication(), ListSeriesGallery.class);
                         startActivity(loginIntent);
                         Toast.makeText(UserLogin.this,
                                         "Login was SUCCESSFULLY completed!!",
@@ -61,7 +69,7 @@ public class UserLogin extends AppCompatActivity {
                         clear();
                     }else{
                         Toast.makeText(UserLogin.this,
-                                    "Something is wrong : " + task.getException().getMessage(),
+                                    "Something goes wrong : " + task.getException().getMessage(),
                                     Toast.LENGTH_LONG)
                         .show();
 

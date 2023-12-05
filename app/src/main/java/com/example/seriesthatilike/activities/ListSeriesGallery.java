@@ -3,7 +3,6 @@ package com.example.seriesthatilike.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.View;
 import android.widget.Toast;
 
@@ -30,7 +29,6 @@ import java.util.List;
 public class ListSeriesGallery extends AppCompatActivity {
 
     private FloatingActionButton btnAddSeries;
-    private SparseArray<ItemSeriesListModel> seriesListAdapter;
     private RecyclerView rv_series_gallery;
     private DatabaseReference databaseReference;
     private ItemSeriesListAdapter seriesAdapter;
@@ -44,14 +42,6 @@ public class ListSeriesGallery extends AppCompatActivity {
         rv_series_gallery = findViewById(R.id.rec_view_series_gallery);
         rv_series_gallery.setHasFixedSize(true);
         rv_series_gallery.setLayoutManager(new LinearLayoutManager(this));
-
-        if (seriesListAdapter.size() == 0) {
-            Toast.makeText(
-                ListSeriesGallery.this,
-                "Não há séries para adicionar",
-                Toast.LENGTH_SHORT)
-            .show();
-        }
 
         btnAddSeries = findViewById(R.id.btn_flt_series_gallery);
         Intent intent = new Intent(getApplication(), CreateSeries.class);
@@ -103,7 +93,10 @@ public class ListSeriesGallery extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError dataSnapshot) {
-                Toast.makeText(ListSeriesGallery.this, "Something comes wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ListSeriesGallery.this,
+                                "Something goes wrong : " + dataSnapshot.getMessage(),
+                                Toast.LENGTH_LONG)
+                        .show();
             }
         });
     }
